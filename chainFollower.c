@@ -3,6 +3,10 @@
 #include <unistd.h>
 
 int main(int argc, char *argv[]) {
+    if (argc != 2){
+        printf("Usage %s is ./chainFollower [symbolic link path]", argv[0]);
+	return(2);
+	}
     struct stat buf;
     char *out;
     char *str = argv[1];
@@ -14,7 +18,7 @@ int main(int argc, char *argv[]) {
 	return 1;
     }
     while (S_ISLNK(buf.st_mode)){
-	int value = readlink(out, out, 64);
+	long value = readlink(out, out, 64);
 	out[value] = '\0';
 	int r = lstat(out, &buf);
 	if (r != 0){
