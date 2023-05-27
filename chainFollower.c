@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[]) {
     if (argc != 2){
-        printf("Usage %s is ./chainFollower [symbolic link path]", argv[0]);
+        printf("Usage %s is ./chainFollower [symbolic link path]\n", argv[0]);
 	return(2);
 	}
     struct stat buf;
