@@ -8,10 +8,8 @@ int main(int argc, char *argv[]) {
 	return(2);
 	}
     struct stat buf;
-    char *out;
-    char *str = argv[1];
-    lstat(str, &buf);
-    out = str;
+    char *out = argv[1];
+    lstat(out, &buf);
     printf("\n%s\n", out);
     if (!S_ISLNK(buf.st_mode)){
     	printf("not a symlink\n");
